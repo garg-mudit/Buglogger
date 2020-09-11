@@ -39,7 +39,8 @@ const App = () => {
   }
 
   function deleteItem(_id) {
-    setLogs([...logs.filter((x) => x._id !== _id)]);
+    // setLogs([...logs.filter((x) => x._id !== _id)]);
+    ipcRenderer.send('logs:delete', _id);
     showAlert('Log Removed');
   }
 
